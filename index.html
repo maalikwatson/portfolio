@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+        Author: Maalik Watson
+        Date: 4/11/2026
+        Purpose: Personal Portfolio Page
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <h1>Maalik Watson</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about">
+            <h2>About</h2>
+            <p>
+                Hello, my name is Maalik Watson. I am a student interested in software development,
+                web development, and building practical projects that strengthen my coding skills.
+                I enjoy learning how websites and applications work, and I am focused on improving
+                my abilities with HTML, CSS, JavaScript, and other programming tools.
+            </p>
+            <p>
+                My goal is to continue growing as a developer by creating projects, solving problems,
+                and gaining experience that prepares me for future opportunities in technology.
+            </p>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <p>
+                Below are links to three project examples. Replace the placeholder links and images
+                with your actual GitHub project URLs and screenshots if needed.
+            </p>
+
+            <a href="https://github.com/yourusername/project1" target="_blank">
+                <img src="images/project1.png" alt="Project 1 screenshot" width="300" height="200">
+            </a>
+
+            <a href="https://github.com/yourusername/project2" target="_blank">
+                <img src="images/project2.png" alt="Project 2 screenshot" width="300" height="200">
+            </a>
+
+            <a href="https://github.com/yourusername/project3" target="_blank">
+                <img src="images/project3.png" alt="Project 3 screenshot" width="300" height="200">
+            </a>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>
+                Use the form below to send a message.
+            </p>
+
+            <form action="#" method="post">
+                <p>
+                    <label for="senderName">Name:</label><br>
+                    <input type="text" id="senderName" name="senderName">
+                </p>
+
+                <p>
+                    <label for="emailAddress">Email Address:</label><br>
+                    <input type="email" id="emailAddress" name="emailAddress">
+                </p>
+
+                <p>
+                    <label for="subject">Subject:</label><br>
+                    <input type="text" id="subject" name="subject">
+                </p>
+
+                <p>
+                    <label for="message">Message:</label><br>
+                    <textarea id="message" name="message" rows="6" cols="40"></textarea>
+                </p>
+
+                <p>
+                    <input type="submit" value="Submit">
+                </p>
+            </form>
+        </section>
+    </main>
+    <script>
+        var userName = prompt("Please enter your name:");
+        document.getElementById("welcomeMessage").textContent = "Welcome, " + userName + "!";
+    </script>
+</body>
+</html>
