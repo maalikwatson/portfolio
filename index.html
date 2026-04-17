@@ -3,21 +3,61 @@
 <head>
     <!--
         Author: Maalik Watson
-        Date: 4/11/2026
-        Purpose: Personal Portfolio Page
+        Date: 4/17/2026
+        Purpose: Personal Portfolio Page with featured content, skills list,
+        dark mode toggle, and contact form interactivity.
     -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Portfolio</title>
     <script src="script.js" defer></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            color: black;
+        }
+
+        .dark-mode {
+            background-color: black;
+            color: white;
+        }
+
+        .dark-mode a {
+            color: lightblue;
+        }
+
+        .resource-box {
+            border: 2px solid black;
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: #f2f2f2;
+        }
+
+        .dark-mode .resource-box {
+            border: 2px solid white;
+            background-color: #222222;
+            color: white;
+        }
+
+        img {
+            margin-right: 10px;
+        }
+    </style>
 </head>
 
 <body>
     <header>
+        <p id="welcomeMessage"></p>
+
+        <label for="darkModeToggle">Dark Mode</label>
+        <input type="checkbox" id="darkModeToggle">
+
         <h1>Maalik Watson</h1>
         <nav>
             <ul>
                 <li><a href="#about">About</a></li>
+                <li><a href="#featured">Featured Content</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -37,6 +77,35 @@
                 My goal is to continue growing as a developer by creating projects, solving problems,
                 and gaining experience that prepares me for future opportunities in technology.
             </p>
+
+            <h3>Skills</h3>
+            <ul id="skillsList"></ul>
+        </section>
+
+        <section id="featured">
+            <h2>Featured Content</h2>
+
+            <div id="universityResources" class="resource-box">
+                <h3>University Resources</h3>
+                <p>
+                    <a href="https://my.ecpi.edu/" target="_blank">ECPI Program Home Page</a>
+                </p>
+            </div>
+
+            <div id="personalProjects" class="resource-box">
+                <h3>Personal Projects</h3>
+                <a href="https://github.com/yourusername/project1" target="_blank">
+                    <img src="images/project1.png" alt="Project 1 screenshot" width="300" height="200">
+                </a>
+
+                <a href="https://github.com/yourusername/project2" target="_blank">
+                    <img src="images/project2.png" alt="Project 2 screenshot" width="300" height="200">
+                </a>
+
+                <a href="https://github.com/yourusername/project3" target="_blank">
+                    <img src="images/project3.png" alt="Project 3 screenshot" width="300" height="200">
+                </a>
+            </div>
         </section>
 
         <section id="projects">
@@ -65,7 +134,7 @@
                 Use the form below to send a message.
             </p>
 
-            <form action="#" method="post">
+            <form action="#" method="post" id="contactForm">
                 <p>
                     <label for="senderName">Name:</label><br>
                     <input type="text" id="senderName" name="senderName">
@@ -87,14 +156,10 @@
                 </p>
 
                 <p>
-                    <input type="submit" value="Submit">
+                    <input type="submit" value="Submit" id="submitButton">
                 </p>
             </form>
         </section>
     </main>
-    <script>
-        var userName = prompt("Please enter your name:");
-        document.getElementById("welcomeMessage").textContent = "Welcome, " + userName + "!";
-    </script>
 </body>
 </html>
