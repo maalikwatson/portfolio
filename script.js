@@ -13,6 +13,23 @@ for (var i = 0; i < skills.length; i++) {
     skillsList.appendChild(listItem);
 }
 
+// Dynamically add a new paragraph to the About Me section
+var aboutSection = document.getElementById("about");
+
+var newParagraph = document.createElement("p");
+newParagraph.textContent = "I am continuing to grow my skills through web development projects, class assignments, and hands-on practice.";
+
+aboutSection.appendChild(newParagraph);
+
+// Select and modify existing elements
+var mainHeading = document.querySelector("h1");
+mainHeading.textContent = "Maalik Watson | Portfolio";
+mainHeading.style.fontSize = "36px";
+
+var projectsSection = document.getElementById("projects");
+projectsSection.style.border = "2px solid #333";
+projectsSection.style.padding = "15px";
+
 // Determine which Featured Content divs to show
 var projectLinks = document.querySelectorAll("#projects a");
 var universityResources = document.getElementById("universityResources");
@@ -33,12 +50,17 @@ darkModeToggle.addEventListener("change", function() {
     document.body.classList.toggle("dark-mode");
 });
 
-// Add interactivity to the Contact form submit button
+// Add timed confirmation to the Contact form
 var submitButton = document.getElementById("submitButton");
 
 submitButton.addEventListener("click", function(event) {
     event.preventDefault();
 
-    var contactName = document.getElementById("senderName").value;
-    alert("Thank you, " + contactName + ", your message has been sent!");
+    var formMessage = document.getElementById("formMessage");
+
+    formMessage.textContent = "Sending message...";
+
+    setTimeout(function() {
+        formMessage.textContent = "Message sent successfully!";
+    }, 3000);
 });
