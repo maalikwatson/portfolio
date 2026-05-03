@@ -1,6 +1,3 @@
-var userName = prompt("Please enter your name:");
-document.getElementById("welcomeMessage").textContent = "Welcome, " + userName + "!";
-
 // Create an array with at least 5 skills
 var skills = ["HTML", "CSS", "JavaScript", "Git", "GitHub"];
 
@@ -12,23 +9,6 @@ for (var i = 0; i < skills.length; i++) {
     listItem.textContent = skills[i];
     skillsList.appendChild(listItem);
 }
-
-// Dynamically add a new paragraph to the About Me section
-var aboutSection = document.getElementById("about");
-
-var newParagraph = document.createElement("p");
-newParagraph.textContent = "I am continuing to grow my skills through web development projects, class assignments, and hands-on practice.";
-
-aboutSection.appendChild(newParagraph);
-
-// Select and modify existing elements
-var mainHeading = document.querySelector("h1");
-mainHeading.textContent = "Maalik Watson | Portfolio";
-mainHeading.style.fontSize = "36px";
-
-var projectsSection = document.getElementById("projects");
-projectsSection.style.border = "2px solid #333";
-projectsSection.style.padding = "15px";
 
 // Determine which Featured Content divs to show
 var projectLinks = document.querySelectorAll("#projects a");
@@ -43,24 +23,38 @@ if (projectLinks.length < 3) {
     universityResources.style.display = "none";
 }
 
-// Add Dark Mode toggle
-var darkModeToggle = document.getElementById("darkModeToggle");
+// Close welcome modal
+var closeModal = document.getElementById("closeModal");
+var welcomeModal = document.getElementById("welcomeModal");
 
-darkModeToggle.addEventListener("change", function() {
-    document.body.classList.toggle("dark-mode");
+closeModal.addEventListener("click", function() {
+    welcomeModal.style.display = "none";
 });
 
-// Add timed confirmation to the Contact form
+// Add Dark Mode toggle and persist preference
+var darkModeToggle = document.getElementById("darkModeToggle");
+
+if (localStorage.getItem("darkMode") === "enabled") {
+    document.body.classList.add("dark-mode");
+    darkModeToggle.checked = true;
+}
+
+darkModeToggle.addEventListener("change", function() {
+    if (darkModeToggle.checked) {
+        document.body.classList.add("dark-mode");
+        localStorage.setItem("darkMode", "enabled");
+    } else {
+        document.body.classList.remove("dark-mode");
+        localStorage.setItem("darkMode", "disabled");
+    }
+});
+
+// Add interactivity to the Contact form submit button
 var submitButton = document.getElementById("submitButton");
 
 submitButton.addEventListener("click", function(event) {
     event.preventDefault();
 
-    var formMessage = document.getElementById("formMessage");
-
-    formMessage.textContent = "Sending message...";
-
-    setTimeout(function() {
-        formMessage.textContent = "Message sent successfully!";
-    }, 3000);
+    var contactName = document.getElementById("senderName").value;
+    alert("Thank you, " + contactName + ", your message has been sent!");
 });
