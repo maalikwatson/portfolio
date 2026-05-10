@@ -5,7 +5,8 @@
         Author: Maalik Watson
         Date: 4/17/2026
         Purpose: Personal Portfolio Page with featured content, skills list,
-        dark mode toggle, welcome modal, and contact form interactivity.
+        dark mode toggle, welcome modal, contact form interactivity,
+        and dynamically rendered project objects using session storage.
     -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -99,6 +100,12 @@
         .tooltip:hover .tooltiptext {
             visibility: visible;
         }
+
+        .project-image {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            display: block;
+        }
     </style>
 </head>
 
@@ -172,21 +179,11 @@
         <section id="projects">
             <h2>Projects</h2>
             <p>
-                Below are links to three project examples. Replace the placeholder links and images
-                with your actual GitHub project URLs and screenshots if needed.
+                Below are three project examples created from JavaScript objects.
+                The project information is stored in session storage and rendered dynamically.
             </p>
 
-            <a href="https://github.com/yourusername/project1" target="_blank">
-                <img src="images/project1.png" alt="Project 1 screenshot" width="300" height="200">
-            </a>
-
-            <a href="https://github.com/yourusername/project2" target="_blank">
-                <img src="images/project2.png" alt="Project 2 screenshot" width="300" height="200">
-            </a>
-
-            <a href="https://github.com/yourusername/project3" target="_blank">
-                <img src="images/project3.png" alt="Project 3 screenshot" width="300" height="200">
-            </a>
+            <div id="projectCards"></div>
         </section>
 
         <section id="contact">
